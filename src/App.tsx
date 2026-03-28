@@ -108,10 +108,10 @@ function App() {
         <header className="todo-header">
           <div className="header-top">
             <div className="header-title-section">
-              <h1 className="header-title">
+              <div className="header-logo-row">
                 <span className="title-emoji">✨</span>
-                Task Master
-              </h1>
+                <h1 className="header-title">Task Master</h1>
+              </div>
               <p className="header-subtitle">Stay focused, get things done</p>
             </div>
             <button

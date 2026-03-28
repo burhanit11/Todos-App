@@ -79,8 +79,20 @@
   gap: 4px;
 }
 
+.header-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
 .header-title {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 5vw, 2rem);
   font-weight: 800;
   line-height: 1;
   color: #1f2937;
@@ -362,19 +374,17 @@
 
 .features-list {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 8px;
-  overflow: hidden;
 }
 
 .feature-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1 0;
-  min-width: 0;
-  min-height: 30px;
-  padding: 0 8px;
+  flex: 0 0 auto;
+  min-height: 28px;
+  padding: 0 10px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--border) 84%, transparent);
   background: linear-gradient(
@@ -387,6 +397,7 @@
   color: #334155;
   line-height: 1;
   text-align: center;
+  white-space: nowrap;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -397,6 +408,12 @@
 }
 
 @media (max-width: 720px) {
+  .header-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
   .header-stats {
     grid-template-columns: 1fr;
   }
@@ -1584,6 +1601,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .stat-card {
+    min-height: 96px;
+  }
+
   .header-layout {
     grid-template-columns: 1fr;
   }
@@ -1679,6 +1700,50 @@
   .todo-progress-inline {
     max-width: 100%;
     width: 100%;
+  }
+
+  .todo-edit-fields {
+    flex-direction: column;
+  }
+
+  .todo-owner-input {
+    width: 100%;
+  }
+}
+
+/* ── Very small phones (≤ 380px) ─────────────────────── */
+@media (max-width: 380px) {
+  .page-shell {
+    padding: 12px 8px 24px;
+  }
+
+  .todo-header {
+    padding: 12px 10px;
+  }
+
+  .header-title {
+    font-size: 1.25rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .stat-value-large {
+    font-size: 1.75rem;
+  }
+
+  .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .features-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .todo-action-btn {
+    font-size: 0.76rem;
+    padding: 8px 6px;
   }
 }
 
@@ -1943,13 +2008,55 @@
 
 @media (max-width: 640px) {
   .page-shell {
-    padding: 22px 14px 34px;
+    padding: 16px 12px 28px;
   }
 
-  .todo-header,
+  .todo-header {
+    border-radius: 14px;
+    padding: 16px 14px;
+    gap: 16px;
+  }
+
   .todo-panel {
-    border-radius: 16px;
-    padding: 14px;
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .header-top {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .header-info {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .info-divider {
+    display: none;
+  }
+
+  .info-item {
+    font-size: 0.84rem;
+  }
+
+  .header-features {
+    padding-top: 12px;
+    gap: 8px;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .feature-pill {
+    font-size: 0.63rem;
+    min-height: 26px;
+    padding: 0 4px;
+    flex: unset;
+    width: 100%;
   }
 
   .todo-header h1 {
