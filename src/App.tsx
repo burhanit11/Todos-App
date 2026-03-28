@@ -95,6 +95,12 @@ function App() {
   const pendingCount = todo.length - completedCount;
   const completionRate =
     todo.length === 0 ? 0 : Math.round((completedCount / todo.length) * 100);
+  const progressState =
+    todo.length > 0 && completionRate === 100
+      ? "complete"
+      : completionRate === 0
+        ? "empty"
+        : "active";
   const highPriorityPending = todo.filter(
     (item) => !item.completed && item.priority === "high",
   ).length;
@@ -130,7 +136,9 @@ function App() {
 
           <div className="header-content">
             <div className="header-stats">
-              <div className="stat-card stat-card-main">
+              <div
+                className={`stat-card stat-card-main stat-card-main-${progressState}`}
+              >
                 <div className="stat-label">Today's Progress</div>
                 <div className="stat-value-large">{completionRate}%</div>
                 <div

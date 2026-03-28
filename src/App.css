@@ -201,8 +201,38 @@
   color: #ffffff;
 }
 
+.stat-card-main-empty {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(252, 165, 165, 0.3),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #7f1d1d 0%, #dc2626 100%);
+  border-color: rgba(252, 165, 165, 0.45);
+}
+
+.stat-card-main-complete {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(187, 247, 208, 0.3),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #14532d 0%, #16a34a 100%);
+  border-color: rgba(134, 239, 172, 0.48);
+}
+
 .stat-card-main:hover {
   box-shadow: 0 22px 34px -28px rgba(29, 78, 216, 0.6);
+}
+
+.stat-card-main-empty:hover {
+  box-shadow: 0 22px 34px -28px rgba(220, 38, 38, 0.62);
+}
+
+.stat-card-main-complete:hover {
+  box-shadow: 0 22px 34px -28px rgba(22, 163, 74, 0.62);
 }
 
 .stat-label {
@@ -267,6 +297,22 @@
   border-radius: inherit;
   background: linear-gradient(90deg, #f8fafc 0%, #93c5fd 100%);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card-main-empty .stat-progress {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-card-main-empty .stat-progress span {
+  background: linear-gradient(90deg, #fee2e2 0%, #fca5a5 100%);
+}
+
+.stat-card-main-complete .stat-progress {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-card-main-complete .stat-progress span {
+  background: linear-gradient(90deg, #dcfce7 0%, #86efac 100%);
 }
 
 .stat-details {
